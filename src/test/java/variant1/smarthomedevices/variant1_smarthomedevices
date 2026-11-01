@@ -1,0 +1,95 @@
+package variant1_smarthomedevices;
+
+public class Main {
+
+    // Інтерфейси на основі ролей (ISP)
+    public interface IPowerable {
+        void powerOn();
+        void powerOff();
+    }
+
+    public interface ITemperatureControllable {
+        void setTemperature(double temp);
+    }
+
+    public interface IDimmable {
+        void setBrightness(int level);
+    }
+
+    public interface ICoffeeBrewable {
+        void brewCoffee();
+    }
+
+    // Класи пристроїв
+    public static class SmartThermostat implements IPowerable, ITemperatureControllable {
+        @Override 
+        public void powerOn() { 
+            System.out.println("Thermostat powered on."); 
+        }
+        
+        @Override 
+        public void powerOff() { 
+            System.out.println("Thermostat powered off."); 
+        }
+        
+        @Override 
+        public void setTemperature(double temp) { 
+            System.out.println("Temperature set to " + temp + "°C."); 
+        }
+    }
+
+    public static class SmartLight implements IPowerable, IDimmable {
+        @Override 
+        public void powerOn() { 
+            System.out.println("Light turned on."); 
+        }
+        
+        @Override 
+        public void powerOff() { 
+            System.out.println("Light turned off."); 
+        }
+        
+        @Override 
+        public void setBrightness(int level) { 
+            System.out.println("Brightness set to " + level + "%."); 
+        }
+    }
+
+    public static class SmartCoffeeMaker implements IPowerable, ICoffeeBrewable {
+        @Override 
+        public void powerOn() { 
+            System.out.println("Coffee maker powered on."); 
+        }
+        
+        @Override 
+        public void powerOff() { 
+            System.out.println("Coffee maker powered off."); 
+        }
+        
+        @Override 
+        public void brewCoffee() { 
+            System.out.println("Brewing fresh coffee..."); 
+        }
+    }
+
+    // Головний метод для запуску та перевірки
+    public static void main(String[] args) {
+        System.out.println("--- Testing Smart Thermostat ---");
+        SmartThermostat thermostat = new SmartThermostat();
+        thermostat.powerOn();
+        thermostat.setTemperature(21.5);
+        thermostat.powerOff();
+
+        System.out.println("\n--- Testing Smart Light ---");
+        SmartLight light = new SmartLight();
+        light.powerOn();
+        light.setBrightness(80);
+        light.powerOff();
+
+        System.out.println("\n--- Testing Smart Coffee Maker ---");
+        SmartCoffeeMaker coffeeMaker = new SmartCoffeeMaker();
+        coffeeMaker.powerOn();
+        coffeeMaker.brewCoffee();
+        coffeeMaker.powerOff();
+    }
+}
