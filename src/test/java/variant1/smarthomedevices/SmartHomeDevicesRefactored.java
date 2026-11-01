@@ -1,26 +1,31 @@
-package variant1_smarthomedevices;
+package variant1.smarthomedevices;
 
-public class Main {
+// Опис предметної області: Екосистема пристроїв розумного дому після рефакторингу (ISP).
 
-    // Інтерфейси на основі ролей (ISP)
+public class SmartHomeDevicesRefactored {
+
+    // 1. Базовий інтерфейс живлення, який потрібен абсолютно всім пристроям
     public interface IPowerable {
         void powerOn();
         void powerOff();
     }
 
+    // 2. Інтерфейс для пристроїв, що керують температурою
     public interface ITemperatureControllable {
         void setTemperature(double temp);
     }
 
+    // 3. Інтерфейс для пристроїв із можливістю регулювання яскравості
     public interface IDimmable {
         void setBrightness(int level);
     }
 
+    // 4. Інтерфейс для пристроїв, що мають функцію приготування кави
     public interface ICoffeeBrewable {
         void brewCoffee();
     }
 
-    // Класи пристроїв
+    // Термостат реалізує тільки живлення та температуру
     public static class SmartThermostat implements IPowerable, ITemperatureControllable {
         @Override 
         public void powerOn() { 
@@ -38,6 +43,7 @@ public class Main {
         }
     }
 
+    // Розумна лампочка реалізує живлення та яскравість
     public static class SmartLight implements IPowerable, IDimmable {
         @Override 
         public void powerOn() { 
@@ -55,6 +61,7 @@ public class Main {
         }
     }
 
+    // Кавоварка реалізує живлення та приготування кави
     public static class SmartCoffeeMaker implements IPowerable, ICoffeeBrewable {
         @Override 
         public void powerOn() { 
@@ -70,26 +77,5 @@ public class Main {
         public void brewCoffee() { 
             System.out.println("Brewing fresh coffee..."); 
         }
-    }
-
-    // Головний метод для запуску та перевірки
-    public static void main(String[] args) {
-        System.out.println("--- Testing Smart Thermostat ---");
-        SmartThermostat thermostat = new SmartThermostat();
-        thermostat.powerOn();
-        thermostat.setTemperature(21.5);
-        thermostat.powerOff();
-
-        System.out.println("\n--- Testing Smart Light ---");
-        SmartLight light = new SmartLight();
-        light.powerOn();
-        light.setBrightness(80);
-        light.powerOff();
-
-        System.out.println("\n--- Testing Smart Coffee Maker ---");
-        SmartCoffeeMaker coffeeMaker = new SmartCoffeeMaker();
-        coffeeMaker.powerOn();
-        coffeeMaker.brewCoffee();
-        coffeeMaker.powerOff();
     }
 }
