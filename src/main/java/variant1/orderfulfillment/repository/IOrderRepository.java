@@ -1,6 +1,6 @@
-package main.java.variant1.orderfulfillment.repository;
+package variant1.orderfulfillment.repository;
 
-import com.example.order.model.Order;
+import variant1.orderfulfillment.model.Order;
 
 public interface IOrderRepository {
     void saveOrder(Order order);

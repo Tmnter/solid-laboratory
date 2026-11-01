@@ -1,12 +1,12 @@
-package main.java.variant1.orderfulfillment;
+package variant1.orderfulfillment;
 
-import com.example.order.repository.IOrderRepository;
-import com.example.order.repository.MySqlDatabaseRepository;
-import com.example.order.service.IAuditLogger;
-import com.example.order.service.FileAuditLogger;
-import com.example.order.service.IEmailService;
-import com.example.order.service.SmtpEmailService;
-import com.example.order.service.OrderFulfillmentService;
+import variant1.orderfulfillment.repository.IOrderRepository;
+import variant1.orderfulfillment.repository.MySqlDatabaseRepository;
+import variant1.orderfulfillment.service.IAuditLogger;
+import variant1.orderfulfillment.service.FileAuditLogger;
+import variant1.orderfulfillment.service.IEmailService;
+import variant1.orderfulfillment.service.SmtpEmailService;
+import variant1.orderfulfillment.service.OrderFulfillmentService;
 
 public class OrderProcessor {
     public static OrderFulfillmentService createOrderFulfillmentService() {

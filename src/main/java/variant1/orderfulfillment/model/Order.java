@@ -1,4 +1,4 @@
-package main.java.variant1.orderfulfillment.model;
+package variant1.orderfulfillment.model;
 
 import java.util.ArrayList;
 import java.util.List;

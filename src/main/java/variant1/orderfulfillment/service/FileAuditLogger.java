@@ -1,4 +1,4 @@
-package main.java.variant1.orderfulfillment.service;
+package variant1.orderfulfillment.service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

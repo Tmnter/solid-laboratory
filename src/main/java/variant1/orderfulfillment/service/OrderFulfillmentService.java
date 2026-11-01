@@ -1,7 +1,7 @@
-package main.java.variant1.orderfulfillment.service;
+package variant1.orderfulfillment.service;
 
-import com.example.order.model.Order;
-import com.example.order.repository.IOrderRepository;
+import variant1.orderfulfillment.model.Order;
+import variant1.orderfulfillment.repository.IOrderRepository;
 
 public class OrderFulfillmentService {
     private final IOrderRepository databaseRepository;

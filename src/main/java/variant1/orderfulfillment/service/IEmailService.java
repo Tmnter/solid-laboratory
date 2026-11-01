@@ -1,4 +1,4 @@
-package main.java.variant1.orderfulfillment.service;
+package variant1.orderfulfillment.service;
 
 public interface IEmailService {
     void sendOrderConfirmation(String email, String orderId);
